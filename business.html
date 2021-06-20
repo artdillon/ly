@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出差信息</title>
+</head>
+<style>
+    body{
+        background-color:  rgb(182, 154, 163) ;
+    }
+    form  {
+        background-color: white;
+display: block;
+height: 40vh;
+    }
+    p{
+        border: 0ch;
+        background-color: white;
+        margin-top: 5px;
+        border: rgb(182, 154, 163) solid;
+    }
+    #up{
+        display: grid;
+        grid-template-columns: 1fr 1fr  ;
+       
+    }
+    #down{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr  ;
+          
+    }
+    .bussiness{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+          
+    }
+    
+    div{
+       justify-content: center;
+        display:inline-block ;
+        height: 100px;
+    }
+    .h1{
+        height: 40px;
+        width: 90px;
+        background-color: #fff1f0;
+        border:#ffa39e solid;
+        color:#f5222d;
+    }
+    .h2{
+        height: 40px;
+        width: 90px;
+        background-color: #e6f7ff;
+        border:#91d5ff solid;
+        color:#1890ff;
+    }
+    .h3{
+        height: 40px;
+        width: 90px;
+        background-color: #f6ffed;
+        border:#b7eb8f solid;
+        color:#52c41a;
+    }
+    #hight{
+    background-color:blue;
+    }
+    #common{
+    background-color:green;
+    }
+   select{
+      width: 180px;
+   }
+    #reason,#order{
+        width: 42vw;
+    }
+    a{
+        text-decoration: none;
+        border: #2d8cf0 solid;
+        
+    }
+    a,button{
+        background-color: #2d8cf0;
+        color: white;
+     }
+     #bottom{
+         text-align: center;
+     }
+   
+</style>
+<body>
+    
+        <p >出差信息</p>
+        <form action="/business" method="POST">
+     
+           <section id="up">
+            <div class="left">
+                <label for="reason" id="reason" >出差事由：</label><br>
+            
+                <input type="text" id="reason" >
+            </div>
+            <div>
+                <label for="order" id="order" >合同编号：</label>
+            <br>
+                <input type="number" id="order"  disabled>
+            </div>
+           </section>
+            <section  id="down">
+                <div>
+                    <label for="date">出差时间：</label><br>
+               
+                    <input type="datetime-local" id="date">
+                </div>      
+                <div>
+                    <label for="name">审批人：</label><br>
+                    <select name="name" id="" >
+                        <option value="1">张三</option>
+                        <option value="2">李四</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="degree">紧急程度：</label><br>
+                    <label for="higher" class="h1">紧急</label>
+                    <input type="radio" name="degree" id="higher" value="0">
+                   <label for="high" class="h2">急</label>
+                    <input type="radio" name="degree" id="high" value="1" >
+                    <label for="common" class="h3">一般</label>
+                    <input type="radio" name="degree" id="common" value="2" checked>
+                </div>
+            </section>
+            </form>
+            <p>行程信息</p>
+        <form action="/business" method="POST">
+     
+           <section class="business">
+            <div>
+                <label for="city" id="city" >出差城市：</label><br>
+                <select name="city" id="">
+                    <option value="3">北京</option>
+                    <option value="4">上海</option>
+                    </select>
+            </div>
+            <div>
+                <label for="date">出发时间:</label><br>
+                <input type="datetime-local" id="date">
+            </div>
+                <div>
+                    <label for="date">返回时间:</label><br>
+                    <input type="datetime-local" id="date">
+                </div>
+            </section>
+            <div>
+                <label for="trans" id="trans" >交通类型：</label><br>
+                <select name="trans" id=""><br>
+                  <option value="3">火车</option>
+                    <option value="4">飞机</option>
+                </select>
+            </div>
+            <footer id="bottom">
+                <button type="submit" onclick="just()"><a href="submit.html">提交</a> </button>
+             <button type="reset"  >取消</button>
+            </footer>
+        </form>
+</body>
+<script>
+    function just() {
+            let start = document.getElementById("start").value
+            let end= document.getElementById("end").value
+            if (start=="") {
+                alert("请输入出发时间");
+                return false;
+            }
+            if (end=="") {
+                alert("请输入返程时间");
+                return false;
+            }
+            let m = new Date(start.replace(/-/g,"/"));
+            let n = new Date(end.replace(/-/g,"/"));
+            if (m.getTime() < n.getTime()) {
+                window.location.href="submit.html";
+                return true;
+            } else {
+                alert("输入错误，要求出发时间小于返程时间");
+                return false;
+            }
+        }
+        </script>
+</html>

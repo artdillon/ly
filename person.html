@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 80vh;
+        }
+        form{
+        display: grid;
+        grid-template-columns: repeat(2,4fr 1fr);
+        grid-column-gap: 40px;
+       }
+       .text input{
+           height: 40px;
+           display: flex;
+          flex-direction: column;
+           width: 400px;
+           margin-bottom: 40px;
+            }
+       button{
+           background-color: #2d8cf0;
+           color:#F4F6F6;
+           text-align: center;
+           height: 40px;
+           line-height: 40px;
+       }
+       .picture{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 180px;
+    grid-row-gap: 40px;
+    margin: 20px;
+    }
+    #d{
+        color: red;
+    }
+    </style>
+</head>
+<body>
+        <form action="#">
+ 
+     <section class="text" >
+               
+               <div><label for="b" id="d">*</label><label for="name">昵称</label></div>
+               <div><input type="text" id="name" placeholder="Aresn"></div>
+                <div><label for="b"  id="d">*</label><label for="email">邮箱</label></div>
+                <div><input type="email" id="email" placeholder="Aresn@iView.desiger"></div>
+                <div><label for="b"  id="d">*</label><label for="mes">个人介绍</label></div>
+                <textarea name="mes" id="" cols="50" rows="10"></textarea>
+                <div><label for="b"  id="d">*</label><label for="company">公司</label></div>
+                <div><input type="text" id="company" placeholder="talkingdata"></div>
+                <div><label for="b"  id="d">*</label><label for="place">居住地</label></div>
+               <div>
+                   <select name="place" id="place">
+                       <option value="1">北京</option>
+                       <option value="2">河南</option>
+                       <option value="3">上海</option>
+                   </select>
+               </div><br>
+                 <button>更新基本信息</button>
+                  
+     </section>
+
+               <div class="picture">
+                   <div><label for="picture">头像</label></div>
+                   <div>
+                       <img src="images/profile_photo.png" alt="" style="height: 80px; width:80px;">
+                   </div>
+                   <div >
+                       <button type="file"  id="picture" method=post enctype=multipe form-data>修改头像</button>
+                   </div>
+                   </div>
+               
+                </div>
+                   </form>
+</body>
+</html>
